@@ -8,17 +8,23 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './nav/nav.component';
 
+import './shared/rxjs-extensions';
+
 @NgModule({
-  imports: [ BrowserModule,
-                   FormsModule,
-                   AppRoutingModule
-                   ],
-  declarations: [ AppComponent,
-                          HomeComponent,
-                          NavbarComponent
-                          ],
-  providers: [ ],
-  bootstrap:    [ AppComponent ]
+    imports: [
+        BrowserModule,
+        FormsModule,
+        AppRoutingModule
+    ],
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        NavbarComponent
+    ],
+    providers: [],
+    bootstrap: [
+        AppComponent
+    ]
 })
 
 export class AppModule { }
