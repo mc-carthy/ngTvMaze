@@ -4,9 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 
+import { UIModule } from './ui/ui.module';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { NavbarComponent } from './nav/nav.component';
 
 import './shared/rxjs-extensions';
 
@@ -14,12 +15,12 @@ import './shared/rxjs-extensions';
     imports: [
         BrowserModule,
         FormsModule,
-        AppRoutingModule
+        AppRoutingModule,
+        UIModule
     ],
     declarations: [
         AppComponent,
         HomeComponent,
-        NavbarComponent
     ],
     providers: [],
     bootstrap: [
