@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CarouselService } from './carousel.service';
+import { Carousel } from './carousel';
 
 @Component({
     moduleId: module.id,
@@ -7,7 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class CarouselComponent implements OnInit {
-    constructor() { }
+ 
+    slides: Carousel[];
+    errorMessage: string;
+ 
+    constructor(
+        private carouselService: CarouselService
+    ) { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.getSlides()
+    }
+
+    getSlides()
+    {
+        this.carouselService.getCarouselItems()
+            .subscribe(
+                slides => this.slides = slides,
+                error => this.errorMessage = <any>error
+            );
+    }
 }

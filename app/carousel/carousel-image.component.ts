@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Carousel } from './carousel';
 
 @Component({
     moduleId: module.id,
@@ -7,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class CarouselImageComponent implements OnInit {
+
+    @Input() slide: Carousel;
+
     constructor() { }
 
     ngOnInit() { }

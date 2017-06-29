@@ -6,6 +6,24 @@ import { Carousel } from './carousel';
 @Injectable()
 export class CarouselService {
 
-    constructor() { }
+    private carouselUrl: string = 'api/carousel_items.json';
+
+    constructor(
+        private http: Http
+    ) { }
+
+    getCarouselItems(): Observable<Carousel[]>
+    {
+        return this.http.get(this.carouselUrl)
+            .map((res: Response) => <Carousel[]> res.json())
+            .do(data => console.log(data))
+            .catch(this.handleError);
+    }
+
+    private handleError(error: Response)
+    {
+        let msg = `Error status code ${error.status} status ${error.statusText} at ${error.url}`;
+        return Observable.throw(msg);
+    }
 
 }
