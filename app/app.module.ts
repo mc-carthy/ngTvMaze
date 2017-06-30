@@ -9,6 +9,7 @@ import { UIModule } from './ui/ui.module';
 import { CarouselModule } from './carousel/carousel.module';
 import { FeaturedModule } from './featured/featured.module';
 import { SearchModule } from './search/search.module';
+import { DetailsModule } from './details/details.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -26,6 +27,7 @@ import './shared/rxjs-extensions';
         CarouselModule,
         FeaturedModule,
         SearchModule,
+        DetailsModule,
 
         AppRoutingModule
     ],
