@@ -1,13 +1,17 @@
 <div class="container">
     <div class="row"><br>
         <h1 class="col-md-6">Find shows</h1>
-        <form>
+        <form 
+            (ngSubmit)="searchShows(searchForm)"
+            [formGroup]="searchForm"
+        >
             <div class="input-group">
-                <input type="search" class="form-control">
+                <input type="search" class="form-control" formControlName="query">
                 <span class="input-group-btn">
                     <button
                         class="btn btn-primary"
                         type="submit"
+                        [disabled]="searchForm.invalid"
                     >
                         Search
                     </button>
@@ -29,7 +33,7 @@
     </div>
 
     <!-- Show table -->
-    <table class="table table-bordered table-hover table-fixed-header">
+    <table class="table table-bordered table-hover table-fixed-header" *ngIf="shows">
         <thead>
             <tr>
                 <th class="text-center">Name</th>
@@ -40,21 +44,24 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr *ngFor="let show of shows">
                 <td>
                     <h5>
-                        Name
+                        {{ show.show.name }}
                     </h5>
                 </td>
                 <td>
-                    <img>Image
+                    <img [src]="show.show.image?.medium">
                 </td>
-                <td>Network</td>
-                <td>Summary</td>
+                <td>{{ show.show.network?.name }}</td>
+                <td [innerHtml]="show.show.summary"></td>
                 <td>
                     <h5>
-                        <span>
-                            Status
+                        <span [ngClass]=
+                            "{'bg-success text-white' : show.show.status === 'Running',
+                            'bg-danger': show.show.status !== 'Running'}"
+                        >
+                            {{ show.show.status }}
                         </span>
                     </h5>
                 </td>
