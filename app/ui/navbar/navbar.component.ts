@@ -16,6 +16,11 @@ export class NavbarComponent {
             routerLink: '',
             label: 'Home',
             active: false
+        },
+        {
+            routerLink: '/search',
+            label: 'Find Shows',
+            active: false
         }
     ]
 }
