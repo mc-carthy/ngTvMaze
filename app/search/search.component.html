@@ -33,7 +33,7 @@
     </div>
 
     <!-- Show table -->
-    <table class="table table-bordered table-hover table-fixed-header" *ngIf="shows">
+    <table class="table table-bordered table-hover table-fixed-header" *ngIf="(shows && shows.length > 0)">
         <thead>
             <tr>
                 <th class="text-center">Name</th>
